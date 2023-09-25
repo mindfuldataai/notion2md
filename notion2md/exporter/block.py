@@ -16,6 +16,7 @@ class Exporter:
         output_path: str = None,
         download: bool = False,
         unzipped: bool = False,
+        notion_token: str | None = None,
     ):
         self._config = Config(
             block_id=block_id,
@@ -25,7 +26,7 @@ class Exporter:
             download=download,
             unzipped=unzipped,
         )
-        self._client = NotionClient()
+        self._client = NotionClient(token=notion_token)
         self._io = None
         self._block_convertor = None
 
